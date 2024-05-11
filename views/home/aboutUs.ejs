@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .card {
+            width: 22%;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            text-align: center;
+            align-items: center;
+        }
+        .card img {
+            width: 70%;
+			height: 70%;
+			margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .card h2 {
+            font-size: 16px;
+            margin: 5px 0;
+            color: #333;
+        }
+        .card p {
+            font-size: 14px;
+            color: #666;
+        }
+		.about-description {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .description-text {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+	<div class="nevbar" id="nevbar">
+        <div class="logo">
+            <a href="http://localhost:3000" id="logo"><h1><span>SHARE</span> PLATE</h1></a>
+        </div>
+        <div class="menu" id="menu">
+            <ul>
+                <li><a id="home" href="http://localhost:3000">Home</a></li>
+                <li><a href="#explore">Explore</a></li>
+                <li><a href="#service">Service</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a id="about" href="/home/about-us" target="_blank">About me</a></li>
+                <li><a id="donate" href="/auth/signup" target="_blank">Donate</a></li>
+            </ul>
+        </div>
+        <div class="menuicon">
+            <i id="menuicon" onclick="togglemenu()" class="fas fa-chevron-circle-down"> <span>MENU</span></i>
+        </div>
+    </div>
+
+    <div class="cover">
+        <div class="information">
+            
+			<div class="container">
+				
+                <h1 class="header" style="color: cornflowerblue;">About Us</h1>
+				<div class="card-container">
+					<div class="card">
+						<img src="https://img.freepik.com/free-photo/medium-shot-man-posing-indoors_23-2151038704.jpg?t=st=1714666299~exp=1714669899~hmac=84bf1907e06c1ab2d4e3068a3d1eceb2d98038423a6128a6e4757bd747e28dd2&w=360" alt="Edward Schettino">
+						<h2>President & CEO</h2>
+						<p>Edward Schettino, DVM, PhD, CAWA</p>
+					</div>
+					<div class="card">
+						<img src="https://img.freepik.com/free-photo/medium-shot-man-posing-indoors_23-2151038704.jpg?t=st=1714666299~exp=1714669899~hmac=84bf1907e06c1ab2d4e3068a3d1eceb2d98038423a6128a6e4757bd747e28dd2&w=360" alt="Name">
+						<h2>Senior Vice President</h2>
+						<p>Position and Qualifications</p>
+					</div>
+					<div class="card">
+						<img src="https://img.freepik.com/free-photo/medium-shot-man-posing-indoors_23-2151038704.jpg?t=st=1714666299~exp=1714669899~hmac=84bf1907e06c1ab2d4e3068a3d1eceb2d98038423a6128a6e4757bd747e28dd2&w=360" alt="Edward Schettino">
+						<h2>Vice President of Animal Welfare</h2>
+						<p>Position and Qualifications</p>
+					</div>
+					<div class="card">
+						<img src="https://img.freepik.com/free-photo/medium-shot-man-posing-indoors_23-2151038704.jpg?t=st=1714666299~exp=1714669899~hmac=84bf1907e06c1ab2d4e3068a3d1eceb2d98038423a6128a6e4757bd747e28dd2&w=360" alt="Edward Schettino">
+						<h2>Vice President of Finance & Accounting</h2>
+						<p>Position and Qualifications</p>
+					</div>
+					<div style="height: 100px;">
+						<div class="about-description" style="color: black;">
+							<p class="description-text" style="text-decoration-color: #333;">
+								Share Plate is a dedicated team on a mission to help people in need by facilitating food donations through our innovative system. We believe that everyone deserves access to nutritious food, and our platform connects food donors with those who require assistance.
+							</p>
+							<p class="description-text">
+								With our user-friendly interface, individuals and businesses can easily donate surplus food, reducing waste and making a positive impact on their communities. Our team works tirelessly to ensure that food resources are distributed efficiently and reach those who need them most.
+							</p>
+							<p class="description-text">
+								At Share Plate, we are committed to fostering a culture of giving and compassion. Together with our supporters and partners, we strive to make a meaningful difference in the fight against hunger. Join us in our mission to create a world where no one goes hungry.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>
+    </div>
+   
+</body>
+</html>
