@@ -14,17 +14,24 @@
     <title>SHARE PLATE</title>
 </head>
 <body>
+
+    <!-- hero bg video -->
+
+    <video autoplay loop muted plays-inline class="hero_video">
+        <source src="/assets/videos/hero.mp4" type="video/mp4">
+    </video>
+
+    <!-- navbar -->
     <div class="nevbar" id="nevbar">
         <div class="logo">
-            <a href="http://localhost:3000" id="logo"><h1><span>SHARE</span> PLATE</h1></a>
+            <a href="/" id="logo"><h1><span>SHARE</span> PLATE</h1></a>
         </div>
         <div class="menu" id="menu">
             <ul>
-                <li><a id="home" href="http://localhost:3000">Home</a></li>
-                <li><a href="#explore">Explore</a></li>
+                <li><a id="home" href="/">Home</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#service">Service</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a id="about" href="/home/about-us" target="_blank">About me</a></li>
                 <li><a id="donate" href="/auth/signup" target="_blank">Donate</a></li>
             </ul>
         </div>
@@ -33,25 +40,18 @@
         </div>
     </div>
 
-    <div class="cover">
-        <div class="information">
-            <h1>-</h1>
-            <h3>Fighting Hunger</h3>
-            <h2>Feed Hope</h2>
-            <h1> <span>Nourish & Share</span> </h1>
-            <h3> <span>Share Plate Charity Foundation</span> </h3>
-            <h1>-</h1>
-            <a href="/auth/login"><button>LOGIN</button></a>
-            <a href="/auth/signup" target="_blank"><button>SIGNUP</button></a>
-        </div>
+    <!-- Hero Banner -->
 
-   
-
+    <div class="hero_content hero_section">
+        <br><br><br><br><br><br><br><br><br><br>
+        
+        <h1>SharePlate: Nourish & Give</h1>
+       <br><a href="/views/auth/login"> <button>Donate</button></a>
+       &nbsp;&nbsp;&nbsp;<a href="#contact"> <button>Contact Us</button></a>
     </div>
+    <!-- About -->
 
-    <div class="explore" id="explore"></div>
-
-    <div class="about">
+    <div class="about" id="about">
         <div class="imgcontanner">
             <div class="aboutimg"></div>
         </div>
@@ -61,12 +61,14 @@
             <p>Alleviate suffering and uplift those in need, fostering a more compassionate and equitable society. Through donation, you can make 
                 a meaningful difference, creating positive impact and fostering a sense of shared responsibility for the well-being of others.</p>
             <p>It also reduces food waste by redirecting surplus food to those in need, promoting sustainability and responsible resource management.</p>
-            <a href="/auth/signup" target="_blank">DONATE</a>
+            <a href="/auth/signup" target="_blank">Donate</a>
             <br>
             <br>
             <h5>_</h5>
         </div>
     </div>
+
+    <!-- Services -->'
 
     <div class="service" id="service">
         <h5>SERVICES</h5>
@@ -95,60 +97,8 @@
         </div>
     </div>
 
-    <div class="contact" id="contact">
-        <h1>CONTACT ME</h1>
-        <br>
-        <div class="contactcontanner">
-            <div class="contanner">
-                <div class="heading">
-                    <div class="icon"><i class="far fa-map"></i></div>
-                    <div class="info">
-                        <p>Address : </p>
-                        <p id="contactinfo">66 Somers Street, Burwood VIC 3125, Melbourne Australia</p>
-                    </div>
-                </div>
-                <div class="heading">
-                    <div class="icon"><i class="fas fa-phone-alt"></i></div>
-                    <div class="info">
-                        <p>Phone : </p>
-                        <p id="contactinfo">+61-404-450-430</p>
-                    </div>
-                </div>
-                <div class="heading">
-                    <div class="icon"><i class="far fa-envelope"></i></div>
-                    <div class="info">
-                        <p>Email : </p>
-                        <p id="contactinfo">info@teamsp.com</p>
-                    </div>
-                </div>
-            </div>
-            <div class="messageform">
-                <div class="form">
-                    <form action="" method="POST">
-                        <style>
-                            ::placeholder {color: rgba(255, 255, 255, 0.7);}
-                        </style>
-                        <input type="text" name="name" placeholder="NAME" required>
-                        <input type="email" name="email" placeholder="EMAIL" required>
-                        <input type="text" name="subject" placeholder="SUBJECT" required>
-                        <textarea type="message" name="message" id="inputbox"  cols="30" rows="5" placeholder="MESSAGE" required></textarea>
-                        <button type="submit">SEND MESSAGE</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Google Map Api -->
-    <div class="service" id="google_Location">
-        <h5>Come Visit Us</h5>
-        <div class="details">
-            <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3150.6653641981743!2d145.09801377514464!3d-37.84471923580658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad64056c91c9cf3%3A0x718f125433869aba!2s66%20Somers%20St%2C%20Burwood%20VIC%203125!5e0!3m2!1sen!2sau!4v1692059786331!5m2!1sen!2sau"
-            width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" class="mb-5"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-    </div>
+    <!-- Experience -->
 
     <div class="contercontent">
         <div class="counterbox one">
@@ -177,6 +127,54 @@
         </div>
     </div>
 
+    <!-- Contact -->
+
+    <div class="contact" id="contact">
+        <h1>CONTACT US</h1>
+        <br>
+        <div class="contactcontanner">
+            <div class="contanner">
+                <div class="heading">
+                    <div class="icon"><i class="far fa-map"></i></div>
+                    <div class="info">
+                        <p>Address : </p>
+                        <p id="contactinfo">Deakin University, Burwood VIC 3125, Melbourne Australia</p>
+                    </div>
+                </div>
+                <div class="heading">
+                    <div class="icon"><i class="fas fa-phone-alt"></i></div>
+                    <div class="info">
+                        <p>Phone : </p>
+                        <p id="contactinfo">+61 000 000 000</p>
+                    </div>
+                </div>
+                <div class="heading">
+                    <div class="icon"><i class="far fa-envelope"></i></div>
+                    <div class="info">
+                        <p>Email : </p>
+                        <p id="contactinfo">info@shareplate.com.au</p>
+                    </div>
+                </div>
+            </div>
+            <div class="messageform">
+                <div class="form">
+                    <form action="" method="POST">
+                        <style>
+                            ::placeholder {color: rgba(255, 255, 255, 0.7);}
+                        </style>
+                        <input type="text" name="name" placeholder="NAME" required>
+                        <input type="email" name="email" placeholder="EMAIL" required>
+                        <input type="text" name="subject" placeholder="SUBJECT" required>
+                        <textarea type="message" name="message" id="inputbox"  cols="30" rows="5" placeholder="MESSAGE" required></textarea>
+                        <button type="submit">Inquire !</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer><strong> <a href="/" style="color: black;">SharePlate: Nourish & Give.</a> All Rights Reserved. &copy 2024 </strong></footer>
+
     <script>
         // drop-down menu script
         var menu = document.getElementById("menu");
@@ -190,18 +188,5 @@
             }
         }
     </script>
-  <script>
-    window.embeddedChatbotConfig = {
-    chatbotId: "NQinSl6TXRxKvrW2cmNnd",
-    domain: "www.chatbase.co"
-    }
-    </script>
-    <script
-    src="https://www.chatbase.co/embed.min.js"
-    chatbotId="NQinSl6TXRxKvrW2cmNnd"
-    domain="www.chatbase.co"
-    defer>
-    </script>
-    
 </body>
 </html>
