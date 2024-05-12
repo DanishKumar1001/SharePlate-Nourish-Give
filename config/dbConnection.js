@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
   try {
-    const db = "mongodb+srv://abdulmueezgujjar:rRZhAiAniyrfiTgm@cluster0.6v54j4q.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+    const db = "mongodb://localhost:27017/shareplate";
     await mongoose.connect(db);
     console.log("MongoDB connected...");
   } catch (err) {

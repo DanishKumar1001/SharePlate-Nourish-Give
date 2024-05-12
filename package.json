@@ -1,7 +1,7 @@
 {
-  "name": "SharePlate-Nourish-Give",
+  "name": "shareplate-nourish-give",
   "version": "1.0.0",
-  "description": "",
+  "description": "Our Food Donation Platform is a web application designed to facilitate secure food donations, streamline distribution processes, and empower users to combat hunger in their communities.",
   "main": "app.js",
   "scripts": {
     "test": "mocha --recursive --timeout 10000"
@@ -27,5 +27,9 @@
     "chai-http": "^4.4.0",
     "mocha": "^10.4.0",
     "request": "^2.88.2"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "keywords": []
 }

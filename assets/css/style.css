@@ -14,7 +14,7 @@
 html {
     scroll-behavior: smooth;
 }
-/*  navbar */
+/*nav bar */
 .nevbar{
     width: 100%;
     position: absolute;
@@ -160,25 +160,55 @@ html {
 }
 
 
-/* About us  */
+
+@media only screen and (max-width : 700px ){
+
+    .cover .information {
+        align-items: center;
+        max-width: 1000px ;    
+        margin: 0 auto;
+        padding-top: 30%;
+    }
+    .information h3 {
+        font-size: 14px;
+        letter-spacing: 3px;
+        font-weight: 300;
+    }
+    .information h3 span {
+        float: none;
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.8);
+    }
+    .information h2 {
+        font-size: 30px;
+    }
+    .information h1 span{
+        font-size: 70px;
+        line-height: 120px;
+        color: #1082d8;
+        letter-spacing: 10px;
+    }
+
+}
+
+/*    About us   */
 .about{
     width: 100%;
     display: flex;
     background-color:#F8F9FA;
-    padding-top: 80px;
 }
 /* About image */
 .about .imgcontanner{
     width: 50%;
     position: relative;
+    background: url('/assets/images/about-home.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     
 }
 .about .imgcontanner .aboutimg {
     position: absolute;
-    background: url('/images/child.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
     width: 100%;
     height: 350px;
     top: 80px;
@@ -240,7 +270,6 @@ html {
         padding:3%;
         padding-bottom: 50px;
         box-sizing: border-box;
-
     }
     .about .imgcontanner .aboutimg {
         position:relative;
@@ -306,7 +335,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* stretching the logo */
+    /* stretch the logo */
     object-fit: cover;
 }
 .details .info #head {
@@ -324,7 +353,7 @@ html {
     .service h1 {
         font-size: 30px;
     }
-    /* details service */
+    /*  service content */
     .service .details {
         width: 100%;
         display: block;
@@ -342,7 +371,7 @@ html {
 }
 
 
-/*   Counter  */
+/*   Counter Card */
 .contercontent {
     width: 100%;
     box-sizing: border-box;
@@ -378,7 +407,7 @@ html {
 
 @media only screen and (max-width : 700px ) {
 
-    /*    Counter   */
+    /*    Counter  card */
     .contercontent {
         display: block;
     }
@@ -394,7 +423,10 @@ html {
     box-sizing: border-box;
     background-color: transparent;
     padding: 125px 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.6)) , url('https://source.unsplash.com/1600x900/?contact,message');
+    background: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.6)) , url('/assets/images/contact-home.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .contact h1 {
     color: white;
@@ -496,14 +528,15 @@ html {
     }
 }
 
-/****************************** FOOTER **************************/
+/* footer */
+
 footer {
     color: rgba(255, 255, 255, 0.8);
     width: 100%;
     box-sizing: border-box;
-    background-color: black;
+    background-color: #1082d8;
     text-align: center;
-    padding: 15px 0;
+    padding: 5px 0;
 }
 footer p {
     font-size: 14px;
@@ -527,19 +560,6 @@ footer a strong {
         transform: translate(-0%);    
         padding: 15px 6%;
     }
-}
-
-.bg-img-1
-{
-	min-height: calc(100vh - 50px);
-	background: url("/assets/images/img-1.jpg") no-repeat center;
-	background-size: cover;
-}
-.bg-img-2
-{
-	min-height: calc(100vh - 50px);
-	background: url("/assets/images/img-2.jpg") no-repeat center;
-	background-size: cover;
 }
 
 .color-theme
