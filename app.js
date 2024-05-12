@@ -1,16 +1,15 @@
 const express = require("express");
 const app = express();
-
 const passport = require("passport");
 const flash = require("connect-flash");
 const session = require("express-session");
 const expressLayouts = require("express-ejs-layouts");
 const methodOverride = require("method-override");
-
+const homeRoutes = require("./routes/home.js");
 const authRoutes = require("./routes/auth.js");
+const adminRoutes = require("./routes/admin.js");
+const donorRoutes = require("./routes/donor.js");
 const agentRoutes = require("./routes/agent.js");
-
-
 require("dotenv").config();
 require("./config/dbConnection.js")();
 require("./config/passport.js")(passport);
@@ -38,9 +37,12 @@ app.use((req, res, next) => {
 	next();
 });
 
+// Routes
+app.use(homeRoutes);
 app.use(authRoutes);
+app.use(adminRoutes);
+app.use(donorRoutes);
 app.use(agentRoutes);
-
 
 // 404 Page
 app.use((req, res) => {
