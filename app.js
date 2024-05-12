@@ -8,6 +8,8 @@ const expressLayouts = require("express-ejs-layouts");
 const methodOverride = require("method-override");
 
 const authRoutes = require("./routes/auth.js");
+const agentRoutes = require("./routes/agent.js");
+
 
 require("dotenv").config();
 require("./config/dbConnection.js")();
@@ -37,7 +39,7 @@ app.use((req, res, next) => {
 });
 
 app.use(authRoutes);
-
+app.use(agentRoutes);
 
 
 // 404 Page
