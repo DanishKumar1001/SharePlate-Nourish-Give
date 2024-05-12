@@ -17,6 +17,18 @@ Node.js, Express.js, MongoDB, EJS, Bootstrap
 
 # How to Run
 
-1. Fork/clone git repository to your local remote access
+1. Fork/clone git repository to your local remote access or download entire project folder.
 2. Run command ' npm i ', to install all node modules and dependencies.
+
+#Optional
+
+If after running the project, it gives any module errors, run following command:
+
+npm init -y
+
+The above command will update the package.json files with all required details of the project, then:
+
+node app.js (make sure you are in root folder)
+
+
    
