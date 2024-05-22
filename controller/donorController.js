@@ -1,5 +1,6 @@
 const Donation = require('../models/donation');
 const User = require('../models/user');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const donorController = {
   getDashboard: async (req, res) => {
@@ -102,6 +103,37 @@ const donorController = {
       res.redirect('back');
     }
   },
+
+  getPaymentForm: (req, res) => {
+    res.render('donor/paymentForm', { title: 'Payment Form' });
+  },
+
+  postPayment: async (req, res) => {
+    try {
+      const { amount, donationId } = req.body;
+
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount: amount * 100,
+        currency: 'usd',
+        metadata: {
+          donationId: donationId,
+          donorId: req.user._id
+        }
+      });
+
+      res.render('donor/paymentConfirmation', {
+        title: 'Payment Confirmation',
+        publicKey: process.env.STRIPE_PUBLIC_KEY,
+        clientSecret: paymentIntent.client_secret,
+        amount: amount,
+        donationId: donationId
+      });
+    } catch (err) {
+      console.error(err);
+      req.flash('error', 'Payment failed. Please try again.');
+      res.redirect('/donor/donate');
+    }
+  }
 };
 
 module.exports = donorController;

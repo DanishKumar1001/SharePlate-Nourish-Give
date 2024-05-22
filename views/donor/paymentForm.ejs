@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <style>
+        h2 {
+            color: #1082d8;
+            text-align: center;
+        }
+
+        .btn {
+            margin-top: 15px;
+        }
+
+        label {
+            margin: 5px;
+            font-weight: bold;
+        }
+
+        #main-wrapper {
+            flex-grow: 1;
+            overflow-y: auto;
+            height: 100vh !important;
+            /* padding: 20px; */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            padding: 4rem;
+            display: flex !important;
+
+        }
+
+        .card {
+            display: contents;
+        }
+
+        .payment-form-container {
+            width: 75%;
+            /* Adjust width as needed */
+            margin: 0 auto;
+            /* Center the form horizontally */
+            margin-top: 50px;
+            /* Add some top margin for spacing */
+            padding: 20px;
+            /* Add padding for spacing within the form container */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            /* Semi-transparent white background */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            min-width: 400px;
+            /* Minimum width to prevent the form from shrinking too much */
+        }
+
+        main {
+            height: calc(100vh - 0px);
+            overflow-y: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main id="main-wrapper">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Payment Details</h2>
+                <form id="payment-form" class="payment-form-container">
+                    <div class="form-group">
+                        <label for="amount">Amount:</label>
+                        <input type="number" id="amount" name="amount" class="form-date-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-number">Card Number:</label>
+                        <input type="text" id="card-number" name="card-number" class="form-date-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expiry">Expiry Date:</label>
+                        <input type="text" id="expiry" name="expiry" class="form-date-input" placeholder="MM/YY"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV:</label>
+                        <input type="text" id="cvv" name="cvv" class="form-date-input" maxlength="3" required>
+                    </div>
+                    <button type="submit" class="btn">Donate Now</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+
+        // Set your Stripe public key
+        var stripe = Stripe('pk_live_51PJ8x9KvV2QZiPVLQCoQb6GuzcKi14OcfHRcdKhMF9ShwpuPVWDtZaDR6yqXc3uNNLNeZHK2PsLHjQmYRZu8aZqU001mbCS3p5');
+
+        // Create an instance of Elements
+        var elements = stripe.elements();
+
+        // Create an instance of the card Element
+        var card = elements.create('card');
+
+        // Add an instance of the card Element into the `card-element` div
+        card.mount('#card-element');
+
+        // Handle form submission
+        var form = document.getElementById('payment-form');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Disable the submit button to prevent multiple submissions
+            form.querySelector('button').disabled = true;
+
+            // Collect card details and create a token
+            stripe.createToken(card).then(function (result) {
+                if (result.error) {
+                    // Show error to your customer
+                    showError(result.error.message);
+                } else {
+                    // Send the token to your server to process the payment
+                    stripeTokenHandler(result.token);
+                }
+            });
+        });
+
+        // Function to handle stripe token
+        function stripeTokenHandler(token) {
+            // You can send the token to your server here and process the payment
+            console.log(token);
+        }
+
+        // Function to show errors
+        function showError(message) {
+            // Display error message to the user
+            var errorElement = document.getElementById('card-errors');
+            errorElement.textContent = message;
+        }
+
+    </script>
+</body>
+
+</html>
