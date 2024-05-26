@@ -2,7 +2,7 @@
 
 Welcome to SharePlate: NOURISH & GIVE - a dynamic web application designed to streamline food donation and collection activities within our community.
 
-<img src="https://raw.githubusercontent.com/AbdulMueezDeakin/SIT725-2024-T1-prac1/main/Home.png" width="70%">
+![image](https://github.com/DanishKumar1001/SharePlate-Nourish-Give/assets/127257306/58c5823a-948c-4273-b2f1-a0adad67ae9c)
 
 ## Table of Contents
 
