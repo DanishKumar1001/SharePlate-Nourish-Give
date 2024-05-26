@@ -1,4 +1,5 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
 const http = require('http');
 const socketIo = require('socket.io');
@@ -26,20 +27,20 @@ app.use("/assets", express.static(__dirname + "/assets"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(session({
-	secret: "secret",
-	resave: true,
-	saveUninitialized: true
+    secret: "secret",
+    resave: true,
+    saveUninitialized: true
 }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 app.use(methodOverride("_method"));
 app.use((req, res, next) => {
-	res.locals.currentUser = req.user;
-	res.locals.error = req.flash("error");
-	res.locals.success = req.flash("success");
-	res.locals.warning = req.flash("warning");
-	next();
+    res.locals.currentUser = req.user;
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
+    res.locals.warning = req.flash("warning");
+    next();
 });
 
 // Routes
@@ -52,22 +53,78 @@ app.use(orderRoutes);
 
 // Socket.IO setup for broadcasting
 io.on('connection', (socket) => {
-  console.log('A user connected');
+    console.log('A user connected');
 
-  // Broadcast a message to all connected clients when a new order is submitted
-  socket.on('newOrder', (order) => {
-    console.log('New order submitted:', order);
-    io.emit('newOrder', order); // Broadcasting to all connected clients
-  });
-
-  socket.on('disconnect', () => {
-    console.log('User disconnected');
-  });
+    socket.on('disconnect', () => {
+        console.log('User disconnected');
+    });
 });
+
+// Middleware for parsing form data
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Routes...
+
+// Route for handling form submissions
+app.post("/contact", (req, res) => {
+    // Extract form data
+    const { name, email, subject, message } = req.body;
+
+    // Basic form validation
+    if (!name || !email || !subject || !message) {
+        req.flash("error", "All fields are required");
+        return res.redirect("/"); // Redirect to the home page or contact page
+    }
+
+    // Placeholder function for sending email (you can replace this with your email sending logic)
+    sendEmail(name, email, subject, message)
+        .then(() => {
+            req.flash("success", "Message sent successfully!");
+            res.redirect("/"); // Redirect to the home page or contact page
+        })
+        .catch((err) => {
+            console.error("Error sending email:", err);
+            req.flash("error", "Failed to send message. Please try again later.");
+            res.redirect("/"); // Redirect to the home page or contact page
+        });
+});
+
+const nodemailer = require("nodemailer");
+
+function sendEmail(name, email, subject, message) {
+    return new Promise((resolve, reject) => {
+        let transporter = nodemailer.createTransport({
+            host: 'smtp.gmail.com',
+            port: 587,
+            secure: false, // true for 465, false for other ports
+            auth: {
+                user: 'Danishkumar1001@gmail.com',
+                pass: 'pvjrtyacbggvikwq' 
+            }
+        });
+
+        // Email content
+        let mailOptions = {
+            from: `"SharePlate" <noreply@example.com>`,
+            to: "kumardanishonline@gmail.com",
+            subject: subject,
+            text: `From: ${name} <${email}>\n\n${message}`
+        };
+
+        // Send email
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                reject(error);
+            } else {
+                resolve(info);
+            }
+        });
+    });
+}
 
 // 404 Page
 app.use((req, res) => {
-	res.status(404).render("404page", { title: "Page not found" });
+    res.status(404).render("404page", { title: "Page not found" });
 });
 
 const port = process.env.PORT || 3000;
