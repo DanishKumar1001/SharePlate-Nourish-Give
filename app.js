@@ -1,5 +1,9 @@
 const express = require("express");
 const app = express();
+const http = require('http');
+const socketIo = require('socket.io');
+const server = http.createServer(app);
+const io = socketIo(server);
 const passport = require("passport");
 const flash = require("connect-flash");
 const session = require("express-session");
@@ -44,7 +48,22 @@ app.use(authRoutes);
 app.use(adminRoutes);
 app.use(donorRoutes);
 app.use(agentRoutes);
-app.use(orderRoutes); 
+app.use(orderRoutes);
+
+// Socket.IO setup for broadcasting
+io.on('connection', (socket) => {
+  console.log('A user connected');
+
+  // Broadcast a message to all connected clients when a new order is submitted
+  socket.on('newOrder', (order) => {
+    console.log('New order submitted:', order);
+    io.emit('newOrder', order); // Broadcasting to all connected clients
+  });
+
+  socket.on('disconnect', () => {
+    console.log('User disconnected');
+  });
+});
 
 // 404 Page
 app.use((req, res) => {
@@ -52,6 +71,6 @@ app.use((req, res) => {
 });
 
 const port = process.env.PORT || 3000;
-app.listen(port, console.log(`Server is running on port: ${port}`));
+server.listen(port, console.log(`Server is running on port: ${port}`));
 
 module.exports = app;
