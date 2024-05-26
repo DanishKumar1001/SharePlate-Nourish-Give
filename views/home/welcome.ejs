@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const socket = io();
+
+            socket.on('connect', () => {
+                console.log('Connected to the server');
+            });
+
+            socket.on('disconnect', () => {
+                console.log('Disconnected from the server');
+            });
+        });
+    </script>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -160,7 +176,7 @@
             </div>
             <div class="messageform">
                 <div class="form">
-                    <form action="" method="POST">
+                    <form action="/contact" method="POST">
                         <style>
                             ::placeholder {color: rgba(255, 255, 255, 0.7);}
                         </style>
