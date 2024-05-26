@@ -10,6 +10,7 @@ const authRoutes = require("./routes/auth.js");
 const adminRoutes = require("./routes/admin.js");
 const donorRoutes = require("./routes/donor.js");
 const agentRoutes = require("./routes/agent.js");
+const orderRoutes = require("./routes/order.js");
 require("dotenv").config();
 require("./config/dbConnection.js")();
 require("./config/passport.js")(passport);
@@ -43,6 +44,7 @@ app.use(authRoutes);
 app.use(adminRoutes);
 app.use(donorRoutes);
 app.use(agentRoutes);
+app.use(orderRoutes); 
 
 // 404 Page
 app.use((req, res) => {

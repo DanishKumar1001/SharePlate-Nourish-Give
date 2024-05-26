@@ -40,6 +40,24 @@ const donationSchema = new mongoose.Schema({
 		enum: ["pending", "rejected", "accepted", "assigned", "collected"],
 		required: true
 	},
+	donor: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    name: String,
+    email: String,
+    number: String,
+    amount: Number,
+    stripeChargeId: String,
+    status: {
+        type: String,
+        default: 'pending'
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 const Donation = mongoose.model("donations", donationSchema);

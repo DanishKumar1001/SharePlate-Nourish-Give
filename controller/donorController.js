@@ -1,5 +1,7 @@
 const Donation = require('../models/donation');
 const User = require('../models/user');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const nodemailer = require('nodemailer');
 
 const donorController = {
   getDashboard: async (req, res) => {
@@ -102,6 +104,43 @@ const donorController = {
       res.redirect('back');
     }
   },
+};
+
+// Controller to handle the donation form submission
+exports.postDonateForm = async (req, res) => {
+  const { name, email, number, amount, stripeToken } = req.body;
+  try {
+      // Create Stripe charge
+      const charge = await stripe.charges.create({
+          amount: amount * 100,
+          currency: 'aud',
+          source: stripeToken,
+          description: `Donation from ${name}`,
+          receipt_email: email,
+      });
+
+      // Save donation details in the database
+      const donation = new Donation({
+          donor: req.user._id,
+          name,
+          email,
+          number,
+          amount,
+          stripeChargeId: charge.id,
+          status: 'pending'
+      });
+      await donation.save(); // This line is within an async function
+
+      // Send email notification to admin
+      await sendDonationEmailToAdmin(name, email, number, amount);
+
+      req.flash('success', 'Thank you for your donation!');
+      res.redirect('/donor/dashboard');
+  } catch (err) {
+      console.log(err);
+      req.flash('error', 'There was an error processing your donation.');
+      res.redirect('/donor/donate');
+  }
 };
 
 module.exports = donorController;
