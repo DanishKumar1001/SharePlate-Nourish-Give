@@ -1,78 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>About Us - Share Plate</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)),
+                url('https://source.unsplash.com/1600x900/?community,charity,helping');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Poppins', sans-serif;
+            color: white;
             padding: 0;
+            margin: 0;
         }
+
         .container {
-            width: 80%;
-            margin: 20px auto;
+            max-width: 1200px;
+            margin: auto;
             padding: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
+
         .header {
-            color: #333;
+			background-color: rgba(255, 255, 255, 0.9);
             text-align: center;
+            /* padding: 50px 20px; */
+			padding: 2rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            margin-top: 75px;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            color: #1082d8;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: purple;
+        }
+
+        .content {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 1rem;
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        .content h2 {
+            color: #1082d8;
             margin-bottom: 20px;
         }
-        .card-container {
+
+        .content p {
+            color: black;
+            line-height: 1.6;
+        }
+
+        .content img {
+            max-width: 100%;
+            border-radius: 1rem;
+            margin-top: 20px;
+        }
+
+        .team {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
         }
-        .card {
-            width: 22%;
-            box-sizing: border-box;
-            margin-bottom: 20px;
-            text-align: center;
-            align-items: center;
-        }
-        .card img {
-            width: 70%;
-			height: 70%;
-			margin-top: 20px;
-            margin-bottom: 10px;
-        }
-        .card h2 {
-            font-size: 16px;
-            margin: 5px 0;
-            color: #333;
-        }
-        .card p {
-            font-size: 14px;
-            color: #666;
-        }
-		.about-description {
-            background-color: #fff;
-            border-radius: 5px;
+
+        .team-member {
+            flex: 1;
+            margin: 10px;
             padding: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 1rem;
+            text-align: center;
         }
 
-        .description-text {
-            font-size: 18px;
-            line-height: 1.6;
+        .team-member img {
+            border-radius: 50%;
+            max-width: 150px;
+            margin-bottom: 15px;
+        }
+
+        .team-member h3 {
+            color: #1082d8;
+        }
+
+        .team-member p {
+            color: black;
+        }
+
+		.top-margin {
+			margin-top: 50px;
+		}
+        .menu ul li a {
+            font-size: 17px;
+            font-weight: 500;
         }
     </style>
 </head>
+
 <body>
-	<div class="nevbar" id="nevbar">
+
+    <div class="nevbar" id="nevbar">
         <div class="logo">
-            <a href="http://localhost:3000" id="logo"><h1><span>SHARE</span> PLATE</h1></a>
+            <a href="http://localhost:3000" id="logo">
+                <h1><span>SHARE</span> PLATE</h1>
+            </a>
         </div>
         <div class="menu" id="menu">
             <ul>
                 <li><a id="home" href="http://localhost:3000">Home</a></li>
-                <li><a href="#explore">Explore</a></li>
-                <li><a href="#service">Service</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a id="about" href="/home/about-us" target="_blank">About me</a></li>
+                <li><a id="about" href="/home/about-us" target="_blank">About</a></li>
+                <li><a href="http://localhost:3000/#service">Service</a></li>
+                <li><a href="http://localhost:3000/#contact">Contact</a></li>
+                <li><a id="blog" href="/home/blog" target="_blank">Blog</a></li>
                 <li><a id="donate" href="/auth/signup" target="_blank">Donate</a></li>
             </ul>
         </div>
@@ -81,50 +128,65 @@
         </div>
     </div>
 
-    <div class="cover">
-        <div class="information">
-            
-			<div class="container">
-				
-                <h1 class="header" style="color: cornflowerblue;">About Us</h1>
-				<div class="card-container">
-					<div class="card">
-						<img src="https://img.freepik.com/free-photo/medium-shot-man-posing-indoors_23-2151038704.jpg?t=st=1714666299~exp=1714669899~hmac=84bf1907e06c1ab2d4e3068a3d1eceb2d98038423a6128a6e4757bd747e28dd2&w=360" alt="Edward Schettino">
-						<h2>President & CEO</h2>
-						<p>Edward Schettino, DVM, PhD, CAWA</p>
-					</div>
-					<div class="card">
-						<img src="https://img.freepik.com/free-photo/medium-shot-man-posing-indoors_23-2151038704.jpg?t=st=1714666299~exp=1714669899~hmac=84bf1907e06c1ab2d4e3068a3d1eceb2d98038423a6128a6e4757bd747e28dd2&w=360" alt="Name">
-						<h2>Senior Vice President</h2>
-						<p>Position and Qualifications</p>
-					</div>
-					<div class="card">
-						<img src="https://img.freepik.com/free-photo/medium-shot-man-posing-indoors_23-2151038704.jpg?t=st=1714666299~exp=1714669899~hmac=84bf1907e06c1ab2d4e3068a3d1eceb2d98038423a6128a6e4757bd747e28dd2&w=360" alt="Edward Schettino">
-						<h2>Vice President of Animal Welfare</h2>
-						<p>Position and Qualifications</p>
-					</div>
-					<div class="card">
-						<img src="https://img.freepik.com/free-photo/medium-shot-man-posing-indoors_23-2151038704.jpg?t=st=1714666299~exp=1714669899~hmac=84bf1907e06c1ab2d4e3068a3d1eceb2d98038423a6128a6e4757bd747e28dd2&w=360" alt="Edward Schettino">
-						<h2>Vice President of Finance & Accounting</h2>
-						<p>Position and Qualifications</p>
-					</div>
-					<div style="height: 100px;">
-						<div class="about-description" style="color: black;">
-							<p class="description-text" style="text-decoration-color: #333;">
-								Share Plate is a dedicated team on a mission to help people in need by facilitating food donations through our innovative system. We believe that everyone deserves access to nutritious food, and our platform connects food donors with those who require assistance.
-							</p>
-							<p class="description-text">
-								With our user-friendly interface, individuals and businesses can easily donate surplus food, reducing waste and making a positive impact on their communities. Our team works tirelessly to ensure that food resources are distributed efficiently and reach those who need them most.
-							</p>
-							<p class="description-text">
-								At Share Plate, we are committed to fostering a culture of giving and compassion. Together with our supporters and partners, we strive to make a meaningful difference in the fight against hunger. Join us in our mission to create a world where no one goes hungry.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
+    <div class="container py-5">
+        <div class="header">
+            <h1>About Us</h1>
+            <p>Our Mission, Vision, and Team</p>
+        </div>
+        
+		<div class="content">
+            <h2>Our Mission</h2>
+            <p>At Share Plate, our mission is to reduce food waste and fight hunger by connecting surplus food with
+                those in need. We strive to create a sustainable and equitable food system where everyone has access to
+                nutritious food.</p>
+            <img src="https://source.unsplash.com/1600x900/?donate,community" alt="Our Mission">
+
+            <h2 class="top-margin">Our Vision</h2>
+            <p>We envision a world where no food goes to waste and no one goes hungry. Through community engagement,
+                education, and innovative solutions, we aim to empower individuals and organizations to take action
+                against food waste and hunger.</p>
+            <img src="https://source.unsplash.com/1600x900/?charity,volunteer" alt="Our Vision">
+
+            <h2 class="top-margin">Our Team</h2>
+            <div class="team">
+                <div class="team-member">
+                    <img src="https://source.unsplash.com/150x150/?person,leader" alt="Team Member">
+                    <h3>Abdul Mueez</h3>
+                    <p>Founder & CEO</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://source.unsplash.com/150x150/?person,manager" alt="Team Member">
+                    <h3>Danish Kumar</h3>
+                    <p>Chief Operations Officer</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://source.unsplash.com/150x150/?person,developer" alt="Team Member">
+                    <h3>Tamim Shahriar</h3>
+                    <p>Lead Developer</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://source.unsplash.com/150x150/?person,designer" alt="Team Member">
+                    <h3>Sumeet Kumar</h3>
+                    <p>Creative Director</p>
+                </div>
+            </div>
         </div>
     </div>
-   
+
+    <script>
+        // drop-down menu script
+        var menu = document.getElementById("menu");
+        menu.style.maxHeight = "0px";
+
+        function togglemenu() {
+            if (menu.style.maxHeight == "0px") {
+                menu.style.maxHeight = "390px";
+            } else {
+                menu.style.maxHeight = "0px";
+            }
+        }
+    </script>
+
 </body>
+
 </html>
