@@ -10,4 +10,6 @@ router.get("/home/mission", homeController.getMissionPage);
 
 router.get("/home/contact-us", homeController.getContactUsPage);
 
+router.get("/home/blog", homeController.getBlogPage);
+
 module.exports = router;

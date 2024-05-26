@@ -1,3 +1,4 @@
+const Post = require('../models/post');
 
 // Display the welcome page
 exports.getWelcomePage = (req, res) => {
@@ -17,4 +18,10 @@ exports.getMissionPage = (req, res) => {
 // Display the Contact Us page
 exports.getContactUsPage = (req, res) => {
     res.render("home/contactUs", { title: "Contact us | Food Aid" });
+};
+
+// Display the Blog page
+exports.getBlogPage = async (req, res) => {
+    const posts = await Post.find({});
+    res.render("home/blog", { title: "Blog | Food Aid", posts });
 };
