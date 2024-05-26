@@ -63,20 +63,17 @@ io.on('connection', (socket) => {
 // Middleware for parsing form data
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Routes...
-
 // Route for handling form submissions
 app.post("/contact", (req, res) => {
     // Extract form data
     const { name, email, subject, message } = req.body;
 
-    // Basic form validation
+// form validation
     if (!name || !email || !subject || !message) {
         req.flash("error", "All fields are required");
         return res.redirect("/"); // Redirect to the home page or contact page
     }
 
-    // Placeholder function for sending email (you can replace this with your email sending logic)
     sendEmail(name, email, subject, message)
         .then(() => {
             req.flash("success", "Message sent successfully!");
