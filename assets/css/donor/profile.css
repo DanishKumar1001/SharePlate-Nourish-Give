@@ -41,6 +41,7 @@ body {
 
 .profile-form label {
     font-weight: bold;
+    color: black !important;
 }
 
 .profile-form input[type="text"],

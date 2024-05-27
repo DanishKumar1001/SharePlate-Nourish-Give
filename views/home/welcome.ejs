@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 
+    <!-- Socket Broadcasting Listener -->
     <script src="/socket.io/socket.io.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -51,6 +52,9 @@
                 <li><a id="blog" href="/home/blog" target="_blank">Blog</a></li>
                 <li><a id="donate" href="/auth/signup" target="_blank">Donate</a></li>
                 <li><a id="donate" href="/orderForm" target="_blank">Order Free Food</a></li>
+                    <a id="user" href="/user/profile" class="usericon" target="_blank">
+                        <i class="fas fa-user-circle"> Login</i>
+                    </a>
             </ul>
         </div>
         <div class="menuicon">
